@@ -70,7 +70,7 @@ public class GameBoardController : MonoBehaviour
 
         for(int i = 0; i < _players.Length; i++)
         {
-            _players[i].transform.position = _tiles[0].transform.position;
+            _players[i].transform.position = new Vector3(_tiles[0].transform.position.x, _tiles[0].transform.position.y, _players[i].transform.position.z);
         }
 
         ScrambleLadders();
@@ -116,7 +116,7 @@ public class GameBoardController : MonoBehaviour
     {
         for(int player = 0; player < _players.Length; player++)
         {
-            int newPos = _players[player].GetBoardPosition() + Random.Range(1, 7);
+            int newPos = Mathf.Min(_players[player].GetBoardPosition() + Random.Range(1, 7), 99);
             int ladderEnd = -1;
             int snakeEnd = -1;
             
@@ -135,13 +135,15 @@ public class GameBoardController : MonoBehaviour
                 newPos = ladderEnd;
             }
 
-            if(newPos >= 100)
+            if(newPos >= 99)
             {
+                _players[player].transform.position = new Vector3(_tiles[newPos].transform.position.x, _tiles[newPos].transform.position.y, _players[player].transform.position.z);
+                _players[player].SetBoardPosition(newPos);
                 Debug.Log("YYYYOU LOOOSEEEEE");
             }
             else
             {
-                _players[player].transform.position = _tiles[newPos].transform.position;
+                _players[player].transform.position = new Vector3(_tiles[newPos].transform.position.x, _tiles[newPos].transform.position.y, _players[player].transform.position.z);
                 _players[player].SetBoardPosition(newPos);
             }
         }
