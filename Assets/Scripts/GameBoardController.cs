@@ -15,6 +15,8 @@ public class GameBoardController : MonoBehaviour
 
     [SerializeField] private int _numLadders;
 
+    [SerializeField] private Player[] _players;
+
 
 
     private List<Snake> _snakes = new List<Snake>();
@@ -66,6 +68,11 @@ public class GameBoardController : MonoBehaviour
             _ladderObjects[i] = Instantiate(_ladderPrefab, new Vector3(0, 0, -4), Quaternion.identity);
         }
 
+        for(int i = 0; i < _players.Length; i++)
+        {
+            _players[i].transform.position = _tiles[0].transform.position;
+        }
+
         ScrambleLadders();
 
         _cam.transform.position = new Vector3((float)_width/2-0.5f, (float)_height/2-0.5f, -10) - new Vector3(_positionOnScreen.x, _positionOnScreen.y, 0.0f);
@@ -83,7 +90,9 @@ public class GameBoardController : MonoBehaviour
 
             //Calculate ladder rotation and distance
             _ladderObjects[i].transform.position = (endTile.transform.position - startTile.transform.position) / 2.0f + startTile.transform.position - new Vector3(0, 0, 3);
-            _ladderObjects[i].transform.rotation = Quaternion.Euler(0, 0, Vector3.Angle(Vector3.up, endTile.transform.position - startTile.transform.position));
+
+            Vector2 targetPosition = endTile.transform.position - _ladderObjects[i].transform.position;
+            _ladderObjects[i].transform.rotation = Quaternion.FromToRotation(Vector3.up, targetPosition);
             //_ladderObjects[i].transform.localScale = new Vector3(1, Vector2.SqrMagnitude((endTile.transform.position - startTile.transform.position)) / _ladderObjects[i]., 1);
 
             var lsr = _ladderObjects[i].GetComponent<SpriteRenderer>();
@@ -93,13 +102,48 @@ public class GameBoardController : MonoBehaviour
         }
     }
 
-    void AddSnake(Snake snek)
+    public void AddSnake(Snake snek)
     {
         _snakes.Add(snek);
     }
 
-    void RemoveSnake(Snake snek)
+    public void RemoveSnake(Snake snek)
     {
         _snakes.Remove(snek);
+    }
+
+    public void doRound()
+    {
+        for(int player = 0; player < _players.Length; player++)
+        {
+            int newPos = _players[player].GetBoardPosition() + Random.Range(1, 7);
+            int ladderEnd = -1;
+            int snakeEnd = -1;
+            
+            for(int lad = 0; lad < _ladders.Length; lad++)
+            {
+                int ladderBase = Mathf.Min(_ladders[lad].x, _ladders[lad].y);
+                int ladderTop = Mathf.Max(_ladders[lad].x, _ladders[lad].y);
+                if(newPos == ladderBase && ladderTop > ladderEnd)
+                {
+                    ladderEnd = ladderTop;
+                }
+            }
+
+            if(ladderEnd >= 0)
+            {
+                newPos = ladderEnd;
+            }
+
+            if(newPos >= 100)
+            {
+                Debug.Log("YYYYOU LOOOSEEEEE");
+            }
+            else
+            {
+                _players[player].transform.position = _tiles[newPos].transform.position;
+                _players[player].SetBoardPosition(newPos);
+            }
+        }
     }
 }
