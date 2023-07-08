@@ -17,7 +17,6 @@ public class Tile : MonoBehaviour
     void OnMouseEnter()
     {
         _highlight.SetActive(true);
-        Debug.Log("Moused Over");
     }
 
     void OnMouseExit()
