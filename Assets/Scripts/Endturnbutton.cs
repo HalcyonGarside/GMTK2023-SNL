@@ -35,7 +35,7 @@ public class Endturnbutton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && _highlight.active == true)
+        if(Input.GetMouseButtonDown(0) && _highlight.activeSelf == true)
         {
             _board.doRound();
         }

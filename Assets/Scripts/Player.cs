@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 
     private int position = 0;
+    private int nextRoll = 0;
 
     public int GetBoardPosition()
     {
@@ -15,6 +16,16 @@ public class Player : MonoBehaviour
     public void SetBoardPosition(int pos)
     {
         position = pos;
+    }
+
+    public int GetNextRoll()
+    {
+        return nextRoll;
+    }
+
+    public void SetNextRoll(int roll)
+    {
+        nextRoll = roll;
     }
 
     // Start is called before the first frame update
