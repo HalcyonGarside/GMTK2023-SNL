@@ -155,8 +155,10 @@ MonoBehaviour:
   _width: 10
   _height: 10
   _tilePrefab: {fileID: 1607126164}
+  _ladderPrefab: {fileID: 2304438244128623603, guid: a27bd196ba02edc40ac4eb407430191c, type: 3}
   _positionOnScreen: {x: 0, y: 1.13}
   _cam: {fileID: 519420032}
+  _numLadders: 2
 --- !u!4 &27102806
 Transform:
   m_ObjectHideFlags: 0
