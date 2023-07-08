@@ -177,7 +177,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &87139229
 GameObject:
@@ -429,15 +429,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 441458965177699284, guid: d4c29315d345bcb40ad9a93623b12715, type: 3}
       propertyPath: _baseColor.b
-      value: 1
+      value: 0.7372549
       objectReference: {fileID: 0}
     - target: {fileID: 441458965177699284, guid: d4c29315d345bcb40ad9a93623b12715, type: 3}
       propertyPath: _baseColor.g
-      value: 0
+      value: 0.1137255
       objectReference: {fileID: 0}
     - target: {fileID: 441458965177699284, guid: d4c29315d345bcb40ad9a93623b12715, type: 3}
       propertyPath: _baseColor.r
-      value: 0.8808007
+      value: 0.42242095
       objectReference: {fileID: 0}
     - target: {fileID: 3605729161836729144, guid: d4c29315d345bcb40ad9a93623b12715, type: 3}
       propertyPath: m_Color.a
@@ -445,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5897887293208243467, guid: d4c29315d345bcb40ad9a93623b12715, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5897887293208243467, guid: d4c29315d345bcb40ad9a93623b12715, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 2121649701}
   - component: {fileID: 2121649700}
   m_Layer: 0
-  m_Name: Square
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
