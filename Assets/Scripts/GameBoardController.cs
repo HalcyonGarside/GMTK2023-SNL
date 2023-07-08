@@ -17,9 +17,11 @@ public class GameBoardController : MonoBehaviour
 
     [SerializeField] private Player[] _players;
 
+    [SerializeField] private SnakeGenerator _snakeGenerator;
 
 
-    private List<Snake> _snakes = new List<Snake>();
+
+    private Snake[] _snakes;
     private Vector2Int[] _ladders;
     private GameObject[] _ladderObjects;
     private Tile[] _tiles;
@@ -30,6 +32,7 @@ public class GameBoardController : MonoBehaviour
         _ladders = new Vector2Int[_numLadders];
         _ladderObjects = new GameObject[_numLadders];
         _tiles = new Tile[_width * _height];
+        _snakes = _snakeGenerator.generateSnakes(3);
 
         GenerateGrid();
     }
@@ -83,6 +86,8 @@ public class GameBoardController : MonoBehaviour
         for(int i = 0; i < _ladders.Length; i++)
         {
             var newLadder = new Vector2Int(Random.Range(0, _width * _height), Random.Range(0, _width * _height));
+            newLadder.x = Random.Range(0, (_width * _height) - _width);
+            newLadder.y = Random.Range(newLadder.x + _width, _width * _height);
             var startTile = _tiles[Mathf.Min(newLadder.x, newLadder.y)];
             var endTile = _tiles[Mathf.Max(newLadder.x, newLadder.y)];
 
@@ -100,16 +105,6 @@ public class GameBoardController : MonoBehaviour
 
             _ladders[i] = newLadder;
         }
-    }
-
-    public void AddSnake(Snake snek)
-    {
-        _snakes.Add(snek);
-    }
-
-    public void RemoveSnake(Snake snek)
-    {
-        _snakes.Remove(snek);
     }
 
     public void doRound()
