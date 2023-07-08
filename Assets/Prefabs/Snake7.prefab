@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8211796779523024179}
   - component: {fileID: 1624816993669416105}
   - component: {fileID: 3806897332939257952}
+  - component: {fileID: -8741430704811694001}
   m_Layer: 0
   m_Name: Snake7
   m_TagString: Untagged
@@ -269,6 +270,20 @@ PolygonCollider2D:
       - {x: -0.63, y: -0.415}
       - {x: -0.64, y: -0.435}
       - {x: -0.64, y: -0.42499998}
+--- !u!114 &-8741430704811694001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699901737750211935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9691be5ef91a2504a8d18f3d9846934f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snakePrefabs: []
+  _renderer: {fileID: 0}
 --- !u!1 &2906086505733860776
 GameObject:
   m_ObjectHideFlags: 0
