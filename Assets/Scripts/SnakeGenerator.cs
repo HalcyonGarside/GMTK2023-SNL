@@ -20,12 +20,12 @@ public class SnakeGenerator : MonoBehaviour
 
     public Snake[] generateSnakes(int numSnakes)
     {
-        // var retSnakes = new Snake[numSnakes];
+        var retSnakes = new Snake[numSnakes];
 
-        // for(int snake = 0; snake < retSnakes.Length; snake++)
-        // {
-        //     //retSnakes[snake] = Instantiate(_snakeTypes[Random.Range(0, _snakeTypes.Length)], this.gameObject.transform.)
-        // }
-        return new Snake[numSnakes];
+        for(int snake = 0; snake < retSnakes.Length; snake++)
+        {
+            retSnakes[snake] = Instantiate(_snakeTypes[Random.Range(0, _snakeTypes.Length)], this.gameObject.transform);
+        }
+        return retSnakes;
     }
 }

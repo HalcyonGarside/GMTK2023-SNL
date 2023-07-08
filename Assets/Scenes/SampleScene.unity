@@ -1782,7 +1782,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51b417f4d7b6484da70d61265abf105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snakeTypes: []
+  _snakeTypes:
+  - {fileID: 857197101316883697, guid: e1a6845e15a1c194dab38ce424a04177, type: 3}
+  - {fileID: 3678503194500780962, guid: 0bae4dce85f58ac4eaa0764337138a35, type: 3}
+  - {fileID: 6273866727377995183, guid: cc5d9ed60fac0ef4faccb74dd764db76, type: 3}
+  - {fileID: 8664491964192507937, guid: 7d92b32575aba86449656624b3e21448, type: 3}
+  - {fileID: 6425795818176960164, guid: d3bbe52950e88724cb3b54f29b1e72f5, type: 3}
+  - {fileID: -7357426844552489116, guid: abc7b11391c14cb4d97b63f5f0c3c71c, type: 3}
+  - {fileID: -8741430704811694001, guid: 4cf8916d452d6ff4fbf8c5eceeb32286, type: 3}
+  - {fileID: 3660614546383544484, guid: 122b14751e43c3e41a7c1127107f7cb0, type: 3}
 --- !u!4 &2119183993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7072911057538437865, guid: 49884be3341edf84a939afae9fbec949, type: 3}
