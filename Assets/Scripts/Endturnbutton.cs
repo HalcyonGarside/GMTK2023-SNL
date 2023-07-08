@@ -6,6 +6,7 @@ public class Endturnbutton : MonoBehaviour
 {
     [SerializeField] private GameObject _EndTurnButton;
     [SerializeField] private GameObject _highlight;
+    [SerializeField] private GameBoardController _board;
 
     public void Init()
     {
@@ -34,6 +35,9 @@ public class Endturnbutton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0))
+        {
+            _board.doRound();
+        }
     }
 }
