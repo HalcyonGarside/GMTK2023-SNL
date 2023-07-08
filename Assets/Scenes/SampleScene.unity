@@ -158,7 +158,7 @@ MonoBehaviour:
   _ladderPrefab: {fileID: 2304438244128623603, guid: a27bd196ba02edc40ac4eb407430191c, type: 3}
   _positionOnScreen: {x: 0, y: 1.13}
   _cam: {fileID: 519420032}
-  _numLadders: 2
+  _numLadders: 3
   _players:
   - {fileID: 725307925}
   - {fileID: 1390487914}
@@ -805,7 +805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -157.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -837,7 +837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533174679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.19, z: 1.85}
+  m_LocalPosition: {x: -0.5, y: 0.19, z: -5.72}
   m_LocalScale: {x: 1.088, y: 1.088, z: 0.544}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -921,7 +921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661275602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.56, y: -0.22, z: 0.39}
+  m_LocalPosition: {x: 0.56, y: -0.22, z: -5.73}
   m_LocalScale: {x: 1.038, y: 1.038, z: 0.5195}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1509,7 +1509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530648122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.59, y: 0.22, z: 1.34}
+  m_LocalPosition: {x: 0.59, y: 0.22, z: -5.72}
   m_LocalScale: {x: 1.05, y: 1.05, z: 0.5249}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1609,7 +1609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778989892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.49, y: -0.29, z: 0.48}
+  m_LocalPosition: {x: -0.49, y: -0.29, z: -5.73}
   m_LocalScale: {x: 1.058, y: 1.058, z: 0.5295}
   m_ConstrainProportionsScale: 0
   m_Children: []
