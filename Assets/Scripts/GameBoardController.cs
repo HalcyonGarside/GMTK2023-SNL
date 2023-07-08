@@ -8,6 +8,8 @@ public class GameBoardController : MonoBehaviour
 
     [SerializeField] private Tile _tilePrefab;
 
+    [SerializeField] private Vector2 _positionOnScreen;
+
     [SerializeField] private Transform _cam;
 
     // Start is called before the first frame update
@@ -42,6 +44,6 @@ public class GameBoardController : MonoBehaviour
             }
         }
 
-        _cam.transform.position = new Vector3((float)_width/2-0.5f, (float)_height/2-0.5f, -10);
+        _cam.transform.position = new Vector3((float)_width/2-0.5f, (float)_height/2-0.5f, -10) - new Vector3(_positionOnScreen.x, _positionOnScreen.y, 0.0f);
     }
 }

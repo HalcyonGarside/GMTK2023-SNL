@@ -155,6 +155,7 @@ MonoBehaviour:
   _width: 10
   _height: 10
   _tilePrefab: {fileID: 1607126164}
+  _positionOnScreen: {x: 0, y: 0}
   _cam: {fileID: 519420032}
 --- !u!4 &27102806
 Transform:
