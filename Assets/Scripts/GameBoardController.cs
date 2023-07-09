@@ -210,6 +210,9 @@ public class GameBoardController : MonoBehaviour
             _snakes.Remove(snek);
             Destroy(snek.gameObject);
         }
-        _snakes.AddRange(_snakeGenerator.generateSnakes(1 + bonusSnakes));
+       // mathf.Min
+        
+        _snakes.AddRange(_snakeGenerator.generateSnakes(Mathf.Min((5-_snakes.Count), 1+bonusSnakes)));
+       Debug.Log("Snake Count " + _snakes.Count + "Snek to be kill " + snakesToDestroy.Count);
     }
 }
