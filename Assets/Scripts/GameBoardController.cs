@@ -22,7 +22,7 @@ public class GameBoardController : MonoBehaviour
 
 
 
-    private Snake[] _snakes;
+    private List<Snake> _snakes;
     private Vector2Int[] _ladders;
     private GameObject[] _ladderObjects;
     private Tile[] _tiles;
@@ -113,6 +113,8 @@ public class GameBoardController : MonoBehaviour
     {
         
         turnCounter++;
+        int bonusSnakes = 0;
+        List<Snake> snakesToDestroy = new List<Snake>();
         //increments through the players
         for(int player = 0; player < _players.Length; player++)
         {
@@ -131,7 +133,7 @@ public class GameBoardController : MonoBehaviour
                 }
             }
 
-            for(int snek = 0; snek < _snakes.Length; snek++)
+            for(int snek = 0; snek < _snakes.Count; snek++)
             {
                 Collider2D head = _snakes[snek].getHead();
                 Collider2D tail = _snakes[snek].getTail();
@@ -144,6 +146,7 @@ public class GameBoardController : MonoBehaviour
                 {
                     continue;
                 }
+                snakesToDestroy.Add(_snakes[snek]);
 
                 int headProg = -1;
                 int tailProg = -1;
@@ -175,6 +178,7 @@ public class GameBoardController : MonoBehaviour
             if(ladderEnd >= 0 && snakeEnd < 0)
             {
                 newPos = ladderEnd;
+                bonusSnakes++;
             }    
             else if(snakeEnd >= 0)
             {
@@ -200,5 +204,12 @@ public class GameBoardController : MonoBehaviour
 
         Debug.Log("Score: " + turnCounter);
 
+        //Regen snakes
+        foreach(Snake snek in snakesToDestroy)
+        {
+            _snakes.Remove(snek);
+            Destroy(snek.gameObject);
+        }
+        _snakes.AddRange(_snakeGenerator.generateSnakes(1 + bonusSnakes));
     }
 }
