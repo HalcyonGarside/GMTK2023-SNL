@@ -6,6 +6,8 @@ public class Snake : MonoBehaviour
 {
     [SerializeField] private GameObject[] _snakePrefabs;
     [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private Collider2D _headColl;
+    [SerializeField] private Collider2D _tailColl;
 
     private bool dragging = false;
     
@@ -24,8 +26,10 @@ public class Snake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dragging) { 
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset; }
+        if (dragging) 
+        { 
+            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset; 
+        }
         
     }
 
@@ -38,5 +42,16 @@ public class Snake : MonoBehaviour
     private void OnMouseUp()
     {
         dragging = false;
+        Debug.Log(_headColl.transform.position);
+    }
+
+    public Collider2D getHead()
+    {
+        return _headColl;
+    }
+
+    public Collider2D getTail()
+    {
+        return _tailColl;
     }
 }

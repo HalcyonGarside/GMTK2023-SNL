@@ -383,4 +383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _snakePrefabs: []
-  _renderer: {fileID: 0}
+  _renderer: {fileID: 5254669462975348788}
+  _headColl: {fileID: 3233726338484100473}
+  _tailColl: {fileID: 1061101600657936005}

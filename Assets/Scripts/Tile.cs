@@ -24,6 +24,11 @@ public class Tile : MonoBehaviour
         _highlight.SetActive(false);
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+    }
+
 
 
     // Start is called before the first frame update

@@ -260,7 +260,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _snakePrefabs: []
-  _renderer: {fileID: 0}
+  _renderer: {fileID: 634099300001581712}
+  _headColl: {fileID: 2716726256312169098}
+  _tailColl: {fileID: 5132530358287843396}
 --- !u!1 &7246901690431771449
 GameObject:
   m_ObjectHideFlags: 0

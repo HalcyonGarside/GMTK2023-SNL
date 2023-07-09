@@ -127,9 +127,55 @@ public class GameBoardController : MonoBehaviour
                 }
             }
 
-            if(ladderEnd >= 0)
+            for(int snek = 0; snek < _snakes.Length; snek++)
+            {
+                Collider2D head = _snakes[snek].getHead();
+                Collider2D tail = _snakes[snek].getTail();
+                int xh = Mathf.RoundToInt(head.transform.position.x);
+                int yh = Mathf.RoundToInt(head.transform.position.y);
+                int xt = Mathf.RoundToInt(tail.transform.position.x);
+                int yt = Mathf.RoundToInt(tail.transform.position.y);
+
+                if(xh > 10 || xh < 0 || yh > 10 || yh < 0 || xt > 10 || xt < 0 || yt > 10 || yt < 0)
+                {
+                    continue;
+                }
+
+                int headProg = -1;
+                int tailProg = -1;
+
+                if(yh % 2 == 1)
+                {
+                    headProg = yh * _width + (_width - xh - 1);
+                }
+                else
+                {
+                    headProg = yh * _width + xh;
+                }
+
+                if(yt % 2 == 1)
+                {
+                    tailProg = yt * _width + (_width - xt - 1);
+                }
+                else
+                {
+                    tailProg = yt * _width + xt;
+                }
+
+                if(newPos == headProg && tailProg > snakeEnd)
+                {
+                    snakeEnd = tailProg;
+                }
+            }
+
+            if(ladderEnd >= 0 && snakeEnd < 0)
             {
                 newPos = ladderEnd;
+            }    
+            else if(snakeEnd >= 0)
+            {
+                newPos = snakeEnd;
+                Debug.Log("Uh oh you ran into a snake");
             }
 
             if(newPos >= 99)

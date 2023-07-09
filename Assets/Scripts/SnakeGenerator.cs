@@ -33,6 +33,6 @@ public class SnakeGenerator : MonoBehaviour
             retSnakes[snake].transform.Rotate(0, 0, 90);
         }
 
-        return new Snake[numSnakes];
+        return retSnakes;
     }
 }
