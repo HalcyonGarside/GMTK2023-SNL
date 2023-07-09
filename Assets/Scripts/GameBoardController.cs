@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameBoardController : MonoBehaviour
 {
@@ -136,6 +137,7 @@ public class GameBoardController : MonoBehaviour
                 _players[player].transform.position = new Vector3(_tiles[newPos].transform.position.x, _tiles[newPos].transform.position.y, _players[player].transform.position.z);
                 _players[player].SetBoardPosition(newPos);
                 Debug.Log("YYYYOU LOOOSEEEEE");
+                SceneManager.LoadScene(2);
             }
             else
             {
