@@ -78,13 +78,19 @@ public class GameBoardController : MonoBehaviour
             _players[i].SetNextRoll(Random.Range(1, 7));
         }
 
-        ScrambleLadders();
+        ScrambleLadders(null);
 
         _cam.transform.position = new Vector3((float)_width/2-0.5f, (float)_height/2-0.5f, -10) - new Vector3(_positionOnScreen.x, _positionOnScreen.y, 0.0f);
     }
 
-    void ScrambleLadders()
+    public void ScrambleLadders(Snake sacrifice)
     {
+        if(sacrifice != null)
+        {
+            _snakes.Remove(sacrifice);
+            Destroy(sacrifice.gameObject);
+        }
+        
         for(int i = 0; i < _ladders.Length; i++)
         {
             var newLadder = new Vector2Int(Random.Range(0, _width * _height), Random.Range(0, _width * _height));

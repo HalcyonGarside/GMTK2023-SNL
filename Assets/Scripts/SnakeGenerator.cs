@@ -6,6 +6,9 @@ public class SnakeGenerator : MonoBehaviour
 {
     [SerializeField] private Snake[] _snakeTypes;
     [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private GameBoardController _board;
+    [SerializeField] private SpriteRenderer _scrambleRegion;
+    [SerializeField] private SpriteRenderer _predictRegion;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class SnakeGenerator : MonoBehaviour
                 new Vector3((region.min.x + region.max.x)/2, Random.Range(region.min.y, region.max.y), -9),
                 _snakeTypes[snakeChoice].transform.rotation));
             retSnakes[snake].transform.Rotate(0, 0, Random.Range(0.0f, 360.0f));
+            retSnakes[snake].Init(_board, _predictRegion.bounds, _scrambleRegion.bounds);
         }
 
         return retSnakes;
@@ -44,6 +48,7 @@ public class SnakeGenerator : MonoBehaviour
             new Vector3((region.min.x + region.max.x)/2, Random.Range(region.min.y, region.max.y), -9),
             _snakeTypes[snakeChoice].transform.rotation);
         retSnake.transform.Rotate(0, 0, Random.Range(0.0f, 360.0f));
+        retSnake.Init(_board, _predictRegion.bounds, _scrambleRegion.bounds);
 
         return retSnake;
     }

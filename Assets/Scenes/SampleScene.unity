@@ -1893,6 +1893,9 @@ MonoBehaviour:
   - {fileID: -8741430704811694001, guid: 4cf8916d452d6ff4fbf8c5eceeb32286, type: 3}
   - {fileID: 3660614546383544484, guid: 122b14751e43c3e41a7c1127107f7cb0, type: 3}
   _renderer: {fileID: 1900153924}
+  _board: {fileID: 27102805}
+  _scrambleRegion: {fileID: 320460041}
+  _predictRegion: {fileID: 1291597849}
 --- !u!4 &2119183993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7072911057538437865, guid: 49884be3341edf84a939afae9fbec949, type: 3}
