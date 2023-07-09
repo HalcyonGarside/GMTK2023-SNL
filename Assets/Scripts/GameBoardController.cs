@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameBoardController : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class GameBoardController : MonoBehaviour
     private GameObject[] _ladderObjects;
     private Tile[] _tiles;
     public static int turnCounter;
+    [SerializeField] private Text[] _playerPred;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +79,7 @@ public class GameBoardController : MonoBehaviour
         {
             _players[i].transform.position = new Vector3(_tiles[0].transform.position.x, _tiles[0].transform.position.y, _players[i].transform.position.z);
             _players[i].SetNextRoll(Random.Range(1, 7));
+            _playerPred[i].text = "Roll: " + _players[i].GetNextRoll();
         }
 
         ScrambleLadders(null);
@@ -113,6 +117,34 @@ public class GameBoardController : MonoBehaviour
 
             _ladders[i] = newLadder;
         }
+    }
+
+    public void predictMove(Snake sacrifice)
+    {
+        var preds = new List<Text>();
+        for(int i = 0; i < _playerPred.Length; i++)
+        {
+            if(!_playerPred[i].gameObject.activeSelf)
+            {
+                preds.Add(_playerPred[i]);
+            }
+        }
+
+        if(preds.Count == 0)
+        {
+            return;
+        }
+        if(sacrifice != null)
+        {
+            _snakes.Remove(sacrifice);
+            Destroy(sacrifice.gameObject);
+        }
+
+        int playerIdx = Random.Range(0, preds.Count);
+
+        Debug.Log("Roll" + _players[playerIdx].GetNextRoll());
+
+        preds[playerIdx].gameObject.SetActive(true);
     }
 
     public void doRound()
@@ -204,7 +236,9 @@ public class GameBoardController : MonoBehaviour
                 _players[player].transform.position = new Vector3(_tiles[newPos].transform.position.x, _tiles[newPos].transform.position.y, _players[player].transform.position.z);
                 _players[player].SetBoardPosition(newPos);
                 _players[player].SetNextRoll(Random.Range(1, 7));
-                
+
+                _playerPred[player].gameObject.SetActive(false);
+                _playerPred[player].text = "Roll: " + _players[player].GetNextRoll();
             }
         }
 

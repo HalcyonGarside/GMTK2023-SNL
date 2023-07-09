@@ -56,10 +56,15 @@ public class Snake : MonoBehaviour
         float y = transform.position.y;
 
         Vector3 srMax = _scrambReg.max, srMin = _scrambReg.min;
+        Vector3 pMax = _predictReg.max, pMin = _predictReg.min;
 
         if(x < srMax.x && x > srMin.x && y < srMax.y && y > srMin.y)
         {
             _board.ScrambleLadders(this);
+        }
+        else if(x < pMax.x && x > pMin.x && y < pMax.y && y > pMin.y)
+        {
+            _board.predictMove(this);
         }
     }
 
