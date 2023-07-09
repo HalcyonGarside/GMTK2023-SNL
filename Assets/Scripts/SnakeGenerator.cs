@@ -26,9 +26,11 @@ public class SnakeGenerator : MonoBehaviour
 
         for(int snake = 0; snake < retSnakes.Length; snake++)
         {
-            retSnakes[snake] = Instantiate(_snakeTypes[Random.Range(0, _snakeTypes.Length)], 
-                new Vector3(Random.Range(region.min.x, region.max.x), Random.Range(region.min.y, region.max.y), -4), 
-                Quaternion.identity);
+            var snakeChoice = Random.Range(0, _snakeTypes.Length);
+            retSnakes[snake] = Instantiate(_snakeTypes[snakeChoice], 
+                new Vector3((region.min.x + region.max.x)/2, Random.Range(region.min.y, region.max.y), -9),
+                _snakeTypes[snakeChoice].transform.rotation);
+            retSnakes[snake].transform.Rotate(0, 0, 90);
         }
 
         return new Snake[numSnakes];
