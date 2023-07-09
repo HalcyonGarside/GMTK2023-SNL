@@ -13,8 +13,16 @@ public class Snake : MonoBehaviour
     
     private Vector3 offset;
 
-    void Init()
+    private GameBoardController _board;
+
+    private Bounds _predictReg;
+    private Bounds _scrambReg;
+
+    public void Init(GameBoardController board, Bounds predictReg, Bounds scrambReg)
     {
+        _board = board;
+        _predictReg = predictReg;
+        _scrambReg = scrambReg;
     }
 
     // Start is called before the first frame update
@@ -43,6 +51,16 @@ public class Snake : MonoBehaviour
     {
         dragging = false;
         Debug.Log(_headColl.transform.position);
+
+        float x = transform.position.x;
+        float y = transform.position.y;
+
+        Vector3 srMax = _scrambReg.max, srMin = _scrambReg.min;
+
+        if(x < srMax.x && x > srMin.x && y < srMax.y && y > srMin.y)
+        {
+            _board.ScrambleLadders(this);
+        }
     }
 
     public Collider2D getHead()
