@@ -7,9 +7,6 @@ public class endScreenScript : MonoBehaviour
 {
    
    
-   
-   
-   
    //hopefully loads the game
    private void LoadGame(){
         //Application.LoadLevel("SampleScene");
