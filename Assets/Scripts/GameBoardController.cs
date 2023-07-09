@@ -26,7 +26,7 @@ public class GameBoardController : MonoBehaviour
     private Vector2Int[] _ladders;
     private GameObject[] _ladderObjects;
     private Tile[] _tiles;
-    public int turnCounter;
+    public static int turnCounter;
     // Start is called before the first frame update
     void Start()
     {
