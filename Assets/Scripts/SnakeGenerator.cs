@@ -30,7 +30,7 @@ public class SnakeGenerator : MonoBehaviour
             retSnakes.Add(Instantiate(_snakeTypes[snakeChoice], 
                 new Vector3((region.min.x + region.max.x)/2, Random.Range(region.min.y, region.max.y), -9),
                 _snakeTypes[snakeChoice].transform.rotation));
-            retSnakes[snake].transform.Rotate(0, 0, 90);
+            retSnakes[snake].transform.Rotate(0, 0, Random.Range(0.0f, 360.0f));
         }
 
         return retSnakes;
@@ -43,7 +43,7 @@ public class SnakeGenerator : MonoBehaviour
         var retSnake = Instantiate(_snakeTypes[snakeChoice], 
             new Vector3((region.min.x + region.max.x)/2, Random.Range(region.min.y, region.max.y), -9),
             _snakeTypes[snakeChoice].transform.rotation);
-        retSnake.transform.Rotate(0, 0, 90);
+        retSnake.transform.Rotate(0, 0, Random.Range(0.0f, 360.0f));
 
         return retSnake;
     }
