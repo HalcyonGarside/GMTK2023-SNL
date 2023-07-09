@@ -26,7 +26,7 @@ public class GameBoardController : MonoBehaviour
     private Vector2Int[] _ladders;
     private GameObject[] _ladderObjects;
     private Tile[] _tiles;
-
+    public int turnCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class GameBoardController : MonoBehaviour
         _ladderObjects = new GameObject[_numLadders];
         _tiles = new Tile[_width * _height];
         _snakes = _snakeGenerator.generateSnakes(3);
-
+        turnCounter = 0;
         GenerateGrid();
     }
 
@@ -111,11 +111,15 @@ public class GameBoardController : MonoBehaviour
 
     public void doRound()
     {
+        
+        turnCounter++;
+        //increments through the players
         for(int player = 0; player < _players.Length; player++)
         {
             int newPos = Mathf.Min(_players[player].GetBoardPosition() + _players[player].GetNextRoll(), 99);
             int ladderEnd = -1;
             int snakeEnd = -1;
+            
             
             for(int lad = 0; lad < _ladders.Length; lad++)
             {
@@ -144,7 +148,11 @@ public class GameBoardController : MonoBehaviour
                 _players[player].transform.position = new Vector3(_tiles[newPos].transform.position.x, _tiles[newPos].transform.position.y, _players[player].transform.position.z);
                 _players[player].SetBoardPosition(newPos);
                 _players[player].SetNextRoll(Random.Range(1, 7));
+                
             }
         }
+
+        Debug.Log("Score: " + turnCounter);
+
     }
 }
